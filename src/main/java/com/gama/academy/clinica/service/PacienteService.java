@@ -1,7 +1,9 @@
 package com.gama.academy.clinica.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolationException;
@@ -28,7 +30,7 @@ public class PacienteService {
 	public List<PacienteDto> getAll() {
 
 		List<Paciente> pacientes = pacienteRepository.findAll();
-		List<PacienteDto> pacientesDto = pacientes.stream().map(paciente -> new PacienteDto(paciente)).toList();
+		List<PacienteDto> pacientesDto = pacientes.stream().map(paciente -> new PacienteDto(paciente)).collect(Collectors.toList());
 		return pacientesDto;
 	}
 
