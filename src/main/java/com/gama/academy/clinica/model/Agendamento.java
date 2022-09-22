@@ -39,13 +39,10 @@ public class Agendamento {
 	@NotBlank(message = "O Horário de Atendimento é Obrigatória!")
 	private String horaAtendimento;
 	
-	// TODO  Pesquisa a respeito, a validação NÃO ESTA FUNCIONANDO	
-	@NotNull(message = "O Status do Atendimento é Obrigatória!")
 	@Enumerated(EnumType.ORDINAL)
 	private StatusAgendamento statusAgendamento;
 	
-	// TODO  Pesquisa a respeito, a validação NÃO ESTA FUNCIONANDO
-//	@NotNull(message = "O Peso do Paciente é Obrigatória!")	
+	@NotNull(message = "O Peso do Paciente é Obrigatório!")	
 	private Double pesoPaciente;
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -55,9 +52,11 @@ public class Agendamento {
 	private List<Procedimento> procedimentos;
 	
 	@Transient
+	//@NotNull(message = "O ID do Paciente é Obrigatório!")	
 	private Long pacienteId;
 	
 	@Transient
+	//@NotNull(message = "O(s) Procedimento(s) são Obrigatórios!")	
 	private List<Long> procedimentosIds;
 
 	public Agendamento() {

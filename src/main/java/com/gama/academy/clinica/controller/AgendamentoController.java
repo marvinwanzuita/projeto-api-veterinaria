@@ -55,9 +55,9 @@ public class AgendamentoController {
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<AgendamentoDto> update(
 			@PathVariable Long id,
-			@RequestBody AgendamentoDto agendamentoDto){
+			@RequestBody Agendamento agendamento){
 		
-		agendamentoDto = agendamentoService.update(id, agendamentoDto);
+		AgendamentoDto agendamentoDto = agendamentoService.update(id, agendamento);
 		return ResponseEntity.ok().body(agendamentoDto);	
 	}
 	

@@ -12,7 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gama.academy.clinica.service.exception.ControllerNotFoundException;
+import com.gama.academy.clinica.service.exception.ResourceNotFoundException;
 import com.gama.academy.clinica.controller.exception.DatabaseException;
 import com.gama.academy.clinica.dto.ProcedimentoDto;
 import com.gama.academy.clinica.model.Procedimento;
@@ -38,7 +38,7 @@ public class ProcedimentoService {
 		Optional<Procedimento> objeto = procedimentoRepository.findById(id);
 		
 		Procedimento procedimento = objeto.orElseThrow(
-				() -> new ControllerNotFoundException("Objeto não encontrado"));
+				() -> new ResourceNotFoundException("Objeto não encontrado"));
 		return new ProcedimentoDto(procedimento);
 	}
 
@@ -61,7 +61,7 @@ public class ProcedimentoService {
 			entidade = procedimentoRepository.save(entidade);
 			return new ProcedimentoDto(entidade);
 		} catch (EntityNotFoundException e) {
-			throw new ControllerNotFoundException("Id " + id + " não encontrado.");
+			throw new ResourceNotFoundException("Id " + id + " não encontrado.");
 		}
 		
 	}
@@ -71,10 +71,10 @@ public class ProcedimentoService {
 			procedimentoRepository.deleteById(id);
 		}
 		catch (EmptyResultDataAccessException e) {
-			throw new ControllerNotFoundException("Id " + id + " não encontrado.");
+			throw new ResourceNotFoundException("Id " + id + " não encontrado.");
 		}
 		catch (DataIntegrityViolationException e) {
-			throw new DatabaseException("Violação de integridade");
+			throw new DatabaseException("Violação de integridade, o Procedimento que você quer deletar esta salvo na Agenda, altere ou remova primeiro da Agenda.");
 		}
 		
 	}

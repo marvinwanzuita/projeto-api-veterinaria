@@ -9,16 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.gama.academy.clinica.service.exception.ControllerNotFoundException;
+import com.gama.academy.clinica.service.exception.ResourceNotFoundException;
 import com.gama.academy.clinica.service.exception.InvalidDateException;
 import com.gama.academy.clinica.service.exception.ViolationConstraintException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
 	
-	@ExceptionHandler(ControllerNotFoundException.class)
+	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<StandardError> resourceNorFound(
-			ControllerNotFoundException e,
+			ResourceNotFoundException e,
 			HttpServletRequest request) {
 		
 		HttpStatus status = HttpStatus.NOT_FOUND;
@@ -43,5 +43,18 @@ public class ControllerExceptionHandler {
 		StandardError err = new StandardError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
 	}
+	
+	@ExceptionHandler(NullPointerException.class)
+	public ResponseEntity<StandardError> alreadyExistAccountByCpf(NullPointerException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		StandardError err = new StandardError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(status).body(err);
+	}
 
+	@ExceptionHandler(DatabaseException.class)
+	public ResponseEntity<StandardError> database(DatabaseException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		StandardError err = new StandardError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(status).body(err);
+	}
 }
