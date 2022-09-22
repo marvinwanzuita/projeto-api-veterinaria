@@ -1,3 +1,5 @@
+
+
 INSERT INTO tb_tutor (email, nome, telefone) VALUES ('giovani@gmail.com', 'Giovanni Passos', '(68) 2350-2365');
 INSERT INTO tb_tutor (email, nome, telefone) VALUES ('leandra@gmail.com', 'Leandra Norte', '(85) 3653-6108');
 INSERT INTO tb_tutor (email, nome, telefone) VALUES	('girlene@gmail.com', 'Girlene Carvalho', '(67) 2788-5763');
@@ -29,15 +31,51 @@ INSERT INTO tb_procedimento (descricao) VALUES ('Corte de unha');
 INSERT INTO tb_procedimento (descricao) VALUES ('Odontológico');
 INSERT INTO tb_procedimento (descricao) VALUES ('Tosa');
 
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-22', '08:30', 15.3, 0, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-04', '10:00', 20.4, 2, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-04', '12:30', 25.4, 3, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-06', '14:00', 4.6, 1, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-13', '10:30', 7.9, 2, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-08', '10:30',  4.6, 3, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-26', '15:30', 30.6, 2, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-13', '10:30', 18.7, 0, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2020-10-10', '17:00', 34.8, 0, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-08', '11:30', 42.7, 0, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-23', '09:00', 38.4, 2, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
-INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-27', '16:00', 4.9, 3, (SELECT ID FROM TB_PACIENTE WHERE ID NOT in (SELECT PACIENTE_ID FROM TB_AGENDAMENTO) LIMIT 1));
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-22', '08:30', 15.3, 0, 1);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-04', '10:00', 20.4, 2, 2);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-04', '12:30', 25.4, 3, 3);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-06', '14:00', 4.6, 1, 4);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-13', '10:30', 7.9, 2, 5);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-08', '10:30',  4.6, 3, 6);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-26', '15:30', 30.6, 2, 7);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-11-13', '10:30', 18.7, 0, 8);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2020-10-10', '17:00', 34.8, 0, 9);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-08', '11:30', 42.7, 0, 10);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-12-23', '09:00', 38.4, 2, 11);
+INSERT INTO tb_agendamento (data_atendimento, hora_atendimento, peso_paciente, status_agendamento, paciente_id) VALUES ('2022-10-27', '16:00', 4.9, 3, 12);
+
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 1, 6)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 1, 2)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 1, 4)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 2, 1)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 3, 2)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 4, 1)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 5, 6)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 5, 3)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 6, 6)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 7, 5)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 8, 4)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 9, 3)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 10, 2)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 11, 1)  
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 12, 1)
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 12, 5)
+INSERT INTO  TB_AGENDAMENTO_PROCEDIMENTOS(AGENDAMENTO_ID, PROCEDIMENTOS_ID) VALUES ( 12, 3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,7 @@
 package com.gama.academy.clinica.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 import javax.validation.ConstraintViolationException;
@@ -15,7 +13,7 @@ import com.gama.academy.clinica.dto.PacienteDto;
 import com.gama.academy.clinica.model.Paciente;
 import com.gama.academy.clinica.model.Tutor;
 import com.gama.academy.clinica.repository.PacienteRepository;
-import com.gama.academy.clinica.service.exception.ResourceNotFoundException;
+import com.gama.academy.clinica.service.exception.ControllerNotFoundException;
 import com.gama.academy.clinica.service.exception.ViolationConstraintException;
 
 @Service
@@ -30,7 +28,7 @@ public class PacienteService {
 	public List<PacienteDto> getAll() {
 
 		List<Paciente> pacientes = pacienteRepository.findAll();
-		List<PacienteDto> pacientesDto = pacientes.stream().map(paciente -> new PacienteDto(paciente)).collect(Collectors.toList());
+		List<PacienteDto> pacientesDto = pacientes.stream().map(paciente -> new PacienteDto(paciente)).toList();
 		return pacientesDto;
 	}
 
@@ -56,7 +54,7 @@ public class PacienteService {
 				throw new ViolationConstraintException(e.getMessage());
 			}
 		} else {
-			throw new ResourceNotFoundException(Tutor.class.getSimpleName());
+			throw new ControllerNotFoundException(Tutor.class.getSimpleName());
 		}
 	}
 
@@ -77,7 +75,7 @@ public class PacienteService {
 					
 					return new PacienteDto(newPatient);
 				}else {
-					throw new ResourceNotFoundException(Tutor.class.getSimpleName());
+					throw new ControllerNotFoundException(Tutor.class.getSimpleName());
 				}
 				
 				
@@ -85,7 +83,7 @@ public class PacienteService {
 				throw new ViolationConstraintException(e.getMessage());
 			}
 		} else {
-			throw new ResourceNotFoundException(Paciente.class.getSimpleName());
+			throw new ControllerNotFoundException(Paciente.class.getSimpleName());
 		}
 	}
 
@@ -98,7 +96,7 @@ public class PacienteService {
 			pacienteRepository.deleteById(id);
 			return "Objeto Excluido";	
 		}else {
-			throw new ResourceNotFoundException(Paciente.class.getSimpleName());
+			throw new ControllerNotFoundException(Paciente.class.getSimpleName());
 		}
 	}
 

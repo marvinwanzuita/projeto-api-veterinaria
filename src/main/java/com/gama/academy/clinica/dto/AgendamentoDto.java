@@ -1,35 +1,42 @@
 package com.gama.academy.clinica.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+import java.util.List;
+
 import com.gama.academy.clinica.model.Agendamento;
+import com.gama.academy.clinica.model.Procedimento;
 import com.gama.academy.clinica.model.StatusAgendamento;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import lombok.Data;
 
+@Data
 public class AgendamentoDto {
 
-    private Long id;
-    private StatusAgendamento statusAgendamento;
-    private Double pesoPaciente;
-    private PacienteDto paciente;
+	private Long id;
+	private LocalDate dataAtendimento;
+	private String horaAtendimento;
+	private StatusAgendamento statusAgendamento;
+	private Double pesoPaciente;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone = "GMT-3")
-    private LocalDate dataAtendimento;
+	private PacienteDto paciente;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm", timezone = "GMT-3")
-    private LocalTime horaAtendimento;
+	private List<Procedimento> procedimentos;
 
-    public AgendamentoDto() {
+	public AgendamentoDto() {
+	}
 
-    }
+	public AgendamentoDto(Agendamento agendamento) {
+		id = agendamento.getId();
+		dataAtendimento = agendamento.getDataAtendimento();
+		horaAtendimento = agendamento.getHoraAtendimento();
+		statusAgendamento = agendamento.getStatusAgendamento();
+		pesoPaciente = agendamento.getPesoPaciente();
+		if (agendamento.getPaciente() != null) {
+			paciente = new PacienteDto(agendamento.getPaciente());
+		}
+		if (agendamento.getProcedimentos() != null) {
+			procedimentos = agendamento.getProcedimentos();
+		}
+	}
 
-    public AgendamentoDto(Agendamento agendamento) {
-        id = agendamento.getId();
-        dataAtendimento = agendamento.getDataAtendimento();
-        horaAtendimento = agendamento.getHoraAtendimento();
-        pesoPaciente = agendamento.getPesoPaciente();
-        statusAgendamento = agendamento.getStatusAgendamento();
-        paciente = new PacienteDto(agendamento.getPaciente());
-    }
 }

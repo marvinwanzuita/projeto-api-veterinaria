@@ -12,7 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gama.academy.clinica.controller.exception.ControllerNotFoundException;
+import com.gama.academy.clinica.service.exception.ControllerNotFoundException;
 import com.gama.academy.clinica.controller.exception.DatabaseException;
 import com.gama.academy.clinica.dto.ProcedimentoDto;
 import com.gama.academy.clinica.model.Procedimento;
@@ -61,7 +61,7 @@ public class ProcedimentoService {
 			entidade = procedimentoRepository.save(entidade);
 			return new ProcedimentoDto(entidade);
 		} catch (EntityNotFoundException e) {
-			throw new ControllerNotFoundException("Id não encontrado: " + id);
+			throw new ControllerNotFoundException("Id " + id + " não encontrado.");
 		}
 		
 	}
@@ -71,7 +71,7 @@ public class ProcedimentoService {
 			procedimentoRepository.deleteById(id);
 		}
 		catch (EmptyResultDataAccessException e) {
-			throw new ControllerNotFoundException("Id não encontrado " + id);
+			throw new ControllerNotFoundException("Id " + id + " não encontrado.");
 		}
 		catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Violação de integridade");
