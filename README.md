@@ -11,9 +11,18 @@ Back-end:
 
 <br>
 
+
 ## MODELO ENTIDADE-RELACIONAMENTO
 
-![Modelo Entidade-Relacionamento](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/modelo-entidade-relacionamento.png)
+![Modelo Entidade-Relacionamento](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/modelo%20entidade-relacionamento.png)
+
+<br>
+
+## DIAGRAMA ENTIDADE-RELACIONAMENTO
+
+### SCRIPT SQL ESTÁ NA PASTA RESOURCES
+
+![Diagrama Entidade-Relacionamento](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/diagrama%20entidade-relacionamento.png)
 
 <br>
 
@@ -29,10 +38,37 @@ Back-end:
 
 <br>
 
+## METODOLOGIA AGIL: SCRUM
+
+### LINK PARA QUADRO DE TAREFAS TRELLO 
+
+<https://trello.com/b/3NRmCoSV/projeto-veterin%C3%A1ria>
+
+![Metodologia Agil](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/agil.png)
+
+<br>
+
+## ENDPOINTS
+
+### SWAGGER
+
+<http://localhost:8080/swagger-ui/index.html>
+
+### LISTA DE ENDPOINTS
+
+![Tutor](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/tutor.png)
+
+![Paciente](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/paciente.png)
+
+![Agendamento](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/agendamento.png)
+
+![Procedimento](https://github.com/ricardo-yuri/clinica-veterinaria/blob/main/src/main/java/com/gama/academy/clinica/assets/procedimento.png)
+
+<br>
+
 ## INTEGRANTES DO GRUPO
 
 - João Pedro Lopes
 - Marvin Wanzuita
-- Pedro Henauth
 - Ricardo Alves
 - Sebastião Alexsandro
