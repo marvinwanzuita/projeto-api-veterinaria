@@ -2,10 +2,11 @@ package com.gama.academy.clinica.model;
 
 public enum StatusAgendamento {
 
-	ATENDIDO(0),
-	NAO_COMPARECEU(1),
-	CANCELADO(2),
-	ADIADO(3);
+	AGENDADO(0),
+	ATENDIDO(1),
+	NAO_COMPARECEU(2),
+	CANCELADO(3),
+	ADIADO(4);
 	
 	private Integer status;
 	

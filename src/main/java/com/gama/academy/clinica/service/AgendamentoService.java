@@ -23,6 +23,7 @@ import com.gama.academy.clinica.dto.AgendamentoDto;
 import com.gama.academy.clinica.model.Agendamento;
 import com.gama.academy.clinica.model.Paciente;
 import com.gama.academy.clinica.model.Procedimento;
+import com.gama.academy.clinica.model.StatusAgendamento;
 import com.gama.academy.clinica.repository.AgendamentoRepository;
 import com.gama.academy.clinica.repository.PacienteRepository;
 import com.gama.academy.clinica.repository.ProcedimentoRepository;
@@ -56,7 +57,7 @@ public class AgendamentoService {
 	}
 
 	@Transactional
-	public AgendamentoDto insert(Agendamento agendamento) {
+	public AgendamentoDto save(Agendamento agendamento) {
 
 		Paciente paciente = pacienteRepository.findById(agendamento.getPacienteId()).orElse(null);
 
@@ -75,22 +76,25 @@ public class AgendamentoService {
 
 					boolean isDataAntiga = ChronoUnit.DAYS.between(agendamento.getDataAtendimento(), today) > 0 ? true
 							: false;
-					System.out.println("QNT dias: "+ ChronoUnit.DAYS.between(agendamento.getDataAtendimento(), today));
-					
-					if(isDataAntiga == false) {						
+
+					boolean isConsultaNaoEfetuada = agendamento.getStatusAgendamento() != StatusAgendamento.AGENDADO
+							? true
+							: false;
+
+					if (isDataAntiga == false || (isDataAntiga && isConsultaNaoEfetuada)) {
 						Agendamento entidade = new Agendamento();
-						
+
 						entidade.setDataAtendimento(agendamento.getDataAtendimento());
 						entidade.setHoraAtendimento(agendamento.getHoraAtendimento());
 						entidade.setStatusAgendamento(agendamento.getStatusAgendamento());
 						entidade.setPesoPaciente(agendamento.getPesoPaciente());
 						entidade.setPaciente(paciente);
 						entidade.setProcedimentos(procedimentos);
-						
+
 						entidade = agendamentoRepository.save(entidade);
-						
+
 						return new AgendamentoDto(entidade);
-					}else {
+					} else {
 						throw new InvalidDateException(agendamento.getDataAtendimento().toString());
 					}
 

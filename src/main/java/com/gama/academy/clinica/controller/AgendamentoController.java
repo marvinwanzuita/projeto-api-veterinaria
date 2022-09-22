@@ -42,7 +42,7 @@ public class AgendamentoController {
 	
 	@PostMapping
 	public ResponseEntity<AgendamentoDto> insert(@RequestBody Agendamento agendamento){
-		AgendamentoDto agendamentoDto = agendamentoService.insert(agendamento);
+		AgendamentoDto agendamentoDto = agendamentoService.save(agendamento);
 		URI uri = ServletUriComponentsBuilder
 					.fromCurrentRequest()
 					.path("/{id}")
